@@ -116,9 +116,10 @@ foreach my $line (split("\n", $res->content)) {
 
 printf(STDERR "Warning: discarded %u lines that were found outside section tags\n", $discarded) if ($discarded > 0);
 
+printf(FILE "server:");
 map {
-	printf(FILE "local-data: \"%s A %s\"\n", $_, $opt->{'address'});
-	printf(FILE "local-data: \"%s AAAA %s\"\n", $_, $opt->{'v6address'});
+	printf(FILE "    local-data: \"%s A %s\"\n", $_, $opt->{'address'});
+	printf(FILE "    local-data: \"%s AAAA %s\"\n", $_, $opt->{'v6address'});
 } @names;
 
 close(FILE);
